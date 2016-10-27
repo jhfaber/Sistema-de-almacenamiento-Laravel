@@ -9,7 +9,8 @@ use Illuminate\Eloquent\Collection;
 use DB;
 use phpproyecto\Categoria;
 
-
+Vamos a hacer las modificaciones del casoo upaaa
+    
 use phpproyecto\Http\Requests;
 
 

@@ -12,7 +12,7 @@ use phpproyecto\Categoria;
 
 use phpproyecto\Http\Requests;
 
-esesencialmente un error
+
 class PersonalController extends Controller
 {
     public function __construct()

@@ -12,7 +12,7 @@ use phpproyecto\Categoria;
 
 use phpproyecto\Http\Requests;
 
-esesencialmente un error vamos a calmarnos
+//esesencialmente un error vamos a calmarnos, el error fue eliminado
 
 class PersonalController extends Controller
 {

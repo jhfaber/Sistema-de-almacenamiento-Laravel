@@ -1,5 +1,5 @@
 <?php
-
+//Este es un controlador personal
 namespace phpproyecto\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ use phpproyecto\Categoria;
 
 use phpproyecto\Http\Requests;
 
-
+esesencialmente un error
 class PersonalController extends Controller
 {
     public function __construct()

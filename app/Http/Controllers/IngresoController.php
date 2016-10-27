@@ -43,11 +43,40 @@ class IngresoController extends Controller
 
     public function create()
     {
-    	$persona=DB::table('persona')->where('tipo_persona','=','Proveedor')->get();
+    	$personas=DB::table('persona')->where('tipo_persona','=','Proveedor')->get();
     	$articulos=DB::table('articulo as art')
     	->select(DB::raw('CONCAT(art.codigo, " ",art.nombre)AS articulo'), 'art.idarticulo')
     	->where('art.estado','=','Activo')
     	->get();
+    	return view('compras.ingreso.create',['persona'=>$personas,'articulos'=>$articulos]);
 
+    }
+    public function store(IngresoFormRequest $request)
+    {
+    	//Se hace el try por que se deben guardar todos los datos, tanto en ingreso como en detalle de ingreso, si falla en alguna parte la transaccion no puede ser efectiva. 
+    	try{ 
+    		DB::beginTransaction();
+    		$ingreso= new Ingreso;
+    		$ingreso->idproveedor=$request->get('idproveedor');
+    		$ingreso->tipo_comprobante=$request->get('tipo_comprobante');
+    		$ingreso->serie_comprobante=$request->get('serie_comprobante');
+    		$ingreso->num_comprobante=$request->get('num_comprobante');
+    		$mytime= Carbon::now('America/Lima');
+    		$ingreso->fecha_hora=$mytime->toDateTimeString();
+    		$ingreso->impuesto='18';
+    		$ingreso->estado='A';
+    		$ingreso->save();
+    		$idarticulo = $request->get('idarticulo');
+    		$cantidad = $request->get('cantidad');
+    		$precio_compra=$request->get('precio_compra');
+    		$precio_venta=$$request->get('precio_venta');
+    		DB::commit();
+    		//vamos a ver
+
+    	}catch(\Exception $e)
+    	{
+    		DB::rollback();
+
+    	}
     }
 }

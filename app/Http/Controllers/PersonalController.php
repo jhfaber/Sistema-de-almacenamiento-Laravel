@@ -1,5 +1,5 @@
 <?php
-
+//Este es un controlador personal
 namespace phpproyecto\Http\Controllers;
 
 use Illuminate\Http\Request;

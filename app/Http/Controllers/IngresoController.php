@@ -72,6 +72,7 @@ class IngresoController extends Controller
     		$precio_venta=$$request->get('precio_venta');
     		DB::commit();
     		//vamos a ver
+    		
 
     	}catch(\Exception $e)
     	{

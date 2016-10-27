@@ -12,7 +12,8 @@ use phpproyecto\Categoria;
 
 use phpproyecto\Http\Requests;
 
-esesencialmente un error
+esesencialmente un error vamos a calmarnos
+
 class PersonalController extends Controller
 {
     public function __construct()
